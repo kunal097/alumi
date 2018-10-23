@@ -83,14 +83,16 @@ def add_event(request):
     return render(request,'event/add-event.html',{'form':form})
 
 
-
+from datetime import date
 def get_event(request):
+    now = date.today()
     obj = Event.objects.all()
+    # upcoming = Event.objects.filter(schedule>=now)
 
     print("%^%^&%^%^%^^")
     print(obj)
 
-    return render(request,"event/event-list.html",{'event':obj})
+    return render(request,"event/event-list.html",{'event':obj,'now':now})
 
 
 def profile(request):

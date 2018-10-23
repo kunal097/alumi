@@ -5,12 +5,28 @@
 {% include "navbar.html" %}
 
 {# {{ event.as_table }} #}
-
+<div>
+	<h3>Upcoming</h3>
 {% for i in event %}
+{% if i.schedule > now %}
 {{ i.title }}<br>
 {{ i.description }}<br>
 {{ i.venue }}<br>
 {{ i.schedule }}<br><br><br>
+{% endif %}
 {% endfor %}
+</div>
+
+<div>
+	<h3>Current</h3>
+{% for i in event %}
+{% if i.schedule == now %}
+{{ i.title }}<br>
+{{ i.description }}<br>
+{{ i.venue }}<br>
+{{ i.schedule }}<br><br><br>
+{% endif %}
+{% endfor %}
+</div>
 
 {% endblock %}
