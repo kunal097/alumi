@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<br>{{ obj.name }}
+<br>{{ obj.gender }}
+<br>{{ obj.branch }}
+<br>{{ obj.passout_year }}
+<br>{{ obj.dob }}
+<br>{{ obj.address }}
+<br>{{ obj.contact_number }}
+<br>{{ obj.is_admin }}
+
+{% endblock %}

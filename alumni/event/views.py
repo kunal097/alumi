@@ -16,6 +16,22 @@ from .models import User,Event
 # def home(request):
 #   return render(request,"home.html",{})
 
+def get_detail(request,id):
+    obj = User.objects.get(id=id)
+    return render(request,'event/detail.html',{'obj':obj})
+
+@login_required
+def search(request):
+    query = request.GET.get('q',None)
+    obj = []
+    print(query)
+    if query:
+        obj = User.objects.filter(name__icontains=query)
+        print('********')
+        print(obj)
+   
+    return render(request,'event/search.html',{'obj':obj})
+
 
 @login_required
 def home(request):
@@ -49,6 +65,7 @@ def complete_profile(request,ruser):
         obj=form.save(commit=False)
         obj.user=AuthUser.objects.get(username=ruser)
         obj.save()
+        return redirect(home)
         # return HttpResponse('Saved')
         # return render(request,'',)
 
