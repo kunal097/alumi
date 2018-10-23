@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "navbar.html" %}
+
+<a href="{% url 'register' %}">Register student</a><br>
+<a href="{% url 'event' %}">Add Event</a>
+
+{% endblock %}

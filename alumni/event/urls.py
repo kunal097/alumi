@@ -1,9 +1,12 @@
 from django.urls import path
-from .views import home
+from .views import home,complete_profile,add_event
 
 urlpatterns = [
     
-    path('',home)
+    
+path('profile/<ruser>',complete_profile,name='profile'),
+path('event',add_event,name='event'),
+path('',home),
     
 
 ]
