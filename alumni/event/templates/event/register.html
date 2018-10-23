@@ -3,7 +3,12 @@
 {% block content %}
 {% include "navbar.html" %}
 
-<a href="{% url 'register' %}">Register student</a><br>
+{% if ruser.is_admin %}
+<a href="{% url 'register' %}">Add student</a><br>
 <a href="{% url 'event' %}">Add Event</a>
+{% endif %}
+
+<br>
+<a href="{% url 'get_event' %}">View Event</a>
 
 {% endblock %}

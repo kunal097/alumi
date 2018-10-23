@@ -8,7 +8,7 @@
           <ul class="navbar-nav ml-auto" style="text-transform: capitalize; ">
               {% if user.is_authenticated%}
             <li class="nav-item">
-              <a class="nav-link " href="">Logout </a>
+              <a class="nav-link " href="{% url 'logout' %}">Logout </a>
             </li>
             {% else %}
             
@@ -18,7 +18,7 @@
                {% endif%}
                {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link " href="">Profile </a>
+              <a class="nav-link " href="{% url 'profile' %}">Profile </a>
             </li>
             {% endif %}
             <li class="nav-item">
